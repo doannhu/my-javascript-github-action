@@ -1,0 +1,14 @@
+on: [push]
+
+jobs:
+  hello_world_job:
+    runs-on: ubuntu-latest
+    name: A job to say hello when pushing
+    steps:
+    - name: Hello world action steps
+      id: hello
+      uses: doannhu/my-javascript-github-action@v1
+      with:
+        who-to-greet: 'Doan Nhu'
+    - name: Get the output time
+      run: echo "The time was ${{steps.hello.outputs.time}}"
